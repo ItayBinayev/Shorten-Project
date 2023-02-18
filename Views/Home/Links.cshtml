@@ -1,0 +1,29 @@
+﻿@model List<URLModel>
+
+@{
+    ViewData["Title"] = "list of Short Link";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped table-hover text-light">
+    <thead>
+        <tr>
+            <th>Full-Url</th>
+            <th>Short-Url</th>
+            <th>Clicks Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model) {
+            <tr class="text-light">
+                <td>@item.FullURL</td>
+                <td>
+                    <a href="@(Context.GetFullDomain()+"/w/"+@item.ShortURL)" class="btn btn-dark" target="_blank">
+                        @item.ShortURL</a>
+                </td>
+                <td>@item.CounterOfRequests</td>
+            </tr>
+        }
+    </tbody>
+</table>
