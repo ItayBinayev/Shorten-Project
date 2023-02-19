@@ -22,7 +22,8 @@ async function generate()
         let resStr = txt + fullboxtxt
         let res = await fetch(resStr, {
             method: "POST",
-            headers: { "Content-type": "application/text;" }
+            body: JSON.stringify(fullboxtxt),
+            headers: { "Content-type": "application/json" }
         })
             .then(response => response.text())
             .then(data => shortbox.value = data);

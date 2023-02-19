@@ -21,7 +21,7 @@ namespace ShortenProject.Controllers
             _signInManager = signInManager;
         }
         [HttpPost("shorten")]
-        public ActionResult<string> Shorten([FromQuery] string fullurl)
+        public ActionResult<string> Shorten([FromBody] string fullurl)
         {
             string shorturl = @"https://localhost:7235/w/";
             string tempforcheck = "";
