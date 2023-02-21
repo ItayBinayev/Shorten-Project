@@ -37,7 +37,6 @@ namespace ShortenProject.Controllers
                     return BadRequest("Error, Invalid URL");
                 if (!(tmp.Scheme == Uri.UriSchemeHttp || tmp.Scheme == Uri.UriSchemeHttps))
                     return BadRequest("Error, Invalid URL");
-                //todo: need to check if user logged in before this logic
                 if (!(_signInManager.IsSignedIn(User)) && _context.URLs.Any(u => u.FullURL == fullurl && u.UrlUser == null)) 
 				{
                     shorturl += _context.URLs.First(u => u.FullURL == fullurl && u.UrlUser == null).ShortURL;
